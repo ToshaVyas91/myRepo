@@ -1,23 +1,12 @@
 pipeline {
-    agent {
+  agent {
     label 'jdk9'
   }
   stages {
     stage('Build') {
       steps {
-        sh '''pipeline {
-   agent any
-    
-   stages {
-      stage(\'Say Hello\') {
-         steps {
-            echo \'Hello World!\'   
-            sh \'java -version\'
-         }
-      }
-   }
-}'''
-        }
+        sh 'mvn -v'
       }
     }
   }
+}
